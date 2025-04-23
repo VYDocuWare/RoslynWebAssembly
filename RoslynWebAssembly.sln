@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoslynWebAssembly", "RoslynWebAssembly\RoslynWebAssembly.csproj", "{4AE14468-5E30-4E00-A437-62EF3AD50F84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionProcessing", "ExpressionProcessing\ExpressionProcessing.csproj", "{18174E08-68B5-4BF7-A76A-610C099EB4F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AE14468-5E30-4E00-A437-62EF3AD50F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE14468-5E30-4E00-A437-62EF3AD50F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE14468-5E30-4E00-A437-62EF3AD50F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE14468-5E30-4E00-A437-62EF3AD50F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18174E08-68B5-4BF7-A76A-610C099EB4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18174E08-68B5-4BF7-A76A-610C099EB4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18174E08-68B5-4BF7-A76A-610C099EB4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18174E08-68B5-4BF7-A76A-610C099EB4F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
