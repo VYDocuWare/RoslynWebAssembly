@@ -10,7 +10,7 @@ const config = getConfig();
 const exports = await getAssemblyExports(config.mainAssemblyName);
 
 // Access JSExport methods using exports.<Namespace>.<Type>.<Method>
-const result = exports.RoslynWebAssembly.Program.GetCompiledResult();
+const result = await exports.RoslynWebAssembly.Program.GetCompiledResult();
 
 // Display the result of the .NET method
 document.getElementById("out").innerHTML = `Result: ${result}`;

@@ -1,19 +1,18 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.VisualBasic;
-using System.Reflection;
 
 namespace DocuWare.WorkflowDesigner.ExpressionProcessing
 {
     public static partial class ExpressionProcessor
     {
-        public static SemanticModel ProcessExpression()
+        public static async Task<SemanticModel> ProcessExpression(MetadataReference visualBasicReference, MetadataReference systemDiagnosticsDebugReference, MetadataReference systemRuntimeReference)
         {
-            var semanticModel = GetProcessingResult();
+            var semanticModel = await GetProcessingResult(visualBasicReference, systemDiagnosticsDebugReference, systemRuntimeReference);
             return semanticModel;
 
         }
 
-        public static SemanticModel GetProcessingResult()
+        public static async Task<SemanticModel> GetProcessingResult(MetadataReference visualBasicReference, MetadataReference systemDiagnosticsDebugReference, MetadataReference systemRuntimeReference)
         {
 
             var codeTemplate = $@"
@@ -35,13 +34,15 @@ namespace DocuWare.WorkflowDesigner.ExpressionProcessing
             var fullCode = string.Format(codeTemplate, "345");
 
             var tree = VisualBasicSyntaxTree.ParseText(fullCode);
+
+
             var compilation = VisualBasicCompilation.Create("TemporaryCompilation",
                 syntaxTrees: new[] { tree },
                 references: new[]
                 {
-                    MetadataReference.CreateFromFile(typeof(Microsoft.VisualBasic.Constants).Assembly.Location),
-                    MetadataReference.CreateFromFile(typeof(System.Diagnostics.Debug).Assembly.Location),
-                    MetadataReference.CreateFromFile(Assembly.Load("System.Runtime, Version=6.0.0.0").Location),
+                    visualBasicReference,
+                    systemDiagnosticsDebugReference,
+                    systemRuntimeReference,
                 });
 
             var semanticModel = compilation.GetSemanticModel(tree);
