@@ -1,7 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.VisualBasic;
 using System.Reflection;
-using System.Xml.Linq;
 
 namespace DocuWare.WorkflowDesigner.ExpressionProcessing
 {
@@ -40,12 +39,8 @@ namespace DocuWare.WorkflowDesigner.ExpressionProcessing
                 syntaxTrees: new[] { tree },
                 references: new[]
                 {
-                    MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
                     MetadataReference.CreateFromFile(typeof(Microsoft.VisualBasic.Constants).Assembly.Location),
-                    MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location),
-                    MetadataReference.CreateFromFile(typeof(XElement).Assembly.Location),
                     MetadataReference.CreateFromFile(typeof(System.Diagnostics.Debug).Assembly.Location),
-                    MetadataReference.CreateFromFile(typeof(System.Runtime.GCSettings).GetTypeInfo().Assembly.Location),
                     MetadataReference.CreateFromFile(Assembly.Load("System.Runtime, Version=6.0.0.0").Location),
                 });
 
