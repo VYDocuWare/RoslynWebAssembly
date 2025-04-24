@@ -13,9 +13,16 @@ namespace RoslynWebAssembly
         [JSExport]
         static bool GetCompiledResult()
         {
-
-            var expressionOutcome = ExpressionProcessor.ProcessExpression();
-            return expressionOutcome.IsSpeculativeSemanticModel;
+            try
+            {
+                var expressionOutcome = ExpressionProcessor.ProcessExpression();
+                return expressionOutcome.IsSpeculativeSemanticModel;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex}");
+                return false;
+            }
         }
     }
 }
